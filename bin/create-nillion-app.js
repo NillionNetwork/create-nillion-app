@@ -3,9 +3,29 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const nillionLogo = `
+       _ _ _ _             
+ _ __ (_) | (_) ___  _ __  
+| '_ \\| | | | |/ _ \\| '_ \\ 
+| | | | | | | | (_) | | | |
+|_| |_|_|_|_|_|\\___/|_| |_|
+                           
+`;
+function displayLogo() {
+  console.log("\x1b[34m%s\x1b[0m", nillionLogo);
+}
+
+function displayWelcomeMessage() {
+  const purpleText = "\x1b[34m"; // ANSI escape code for purple text
+  const resetColor = "\x1b[0m"; // ANSI escape code to reset color
+  console.log(
+    `Welcome to ${purpleText}create-nillion-app${resetColor} - the quickstart Nillion CLI`
+  );
+}
 
 function installNilup() {
-  console.log("Installing nilup...");
+  console.log("");
+  console.log("Installing nilup... This may take a few minutes.🙏 ");
   execSync("curl -fsSL https://nilup.nilogy.xyz/install.sh | sh", {
     stdio: "inherit",
   });
@@ -49,7 +69,8 @@ function updatePackageJson() {
 
 function main() {
   const projectName = process.argv[2] || "nillion-app";
-
+  displayLogo();
+  displayWelcomeMessage();
   installNilup();
   createNextJsProject(projectName);
   setupNillionFolder();
