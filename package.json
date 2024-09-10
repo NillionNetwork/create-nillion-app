@@ -1,11 +1,16 @@
 {
-  "name": "create-nillion-app",
+  "name": "@crypblizz/create-nillion-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["nillion", "boilerplate", "create-nillion-app", "quickstart"],
+  "keywords": [
+    "nillion",
+    "boilerplate",
+    "create-nillion-app",
+    "quickstart"
+  ],
   "author": "crypblizz",
   "license": "MIT",
   "description": "Quickstart a new Nillion app",

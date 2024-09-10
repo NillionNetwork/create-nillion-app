@@ -116,6 +116,7 @@ function main() {
     `Nillion quickstart "${projectName}" has been created successfully! 🚀`
   );
   console.log(`Follow the rest of the Documenation Quickstart to get started!`);
+  console.log("--------------------");
 }
 
 main();
