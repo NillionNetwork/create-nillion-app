@@ -16,8 +16,8 @@ function displayLogo() {
 }
 
 function displayWelcomeMessage() {
-  const purpleText = "\x1b[34m"; // ANSI escape code for purple text
-  const resetColor = "\x1b[0m"; // ANSI escape code to reset color
+  const purpleText = "\x1b[34m";
+  const resetColor = "\x1b[0m";
   console.log(
     `Welcome to ${purpleText}create-nillion-app${resetColor} - the quickstart Nillion CLI`
   );
@@ -34,7 +34,7 @@ function isNilupInstalled() {
 }
 
 function installNilup() {
-  console.log("");
+  console.log("--------------------");
   console.log("Installing nilup... This may take a few minutes.🙏 ");
   execSync("curl -fsSL https://nilup.nilogy.xyz/install.sh | sh", {
     stdio: "inherit",
@@ -47,19 +47,7 @@ function installNilup() {
 function setupNadaFolder(rootDir) {
   console.log("Setting up Nada project...");
 
-  const nadaProjectPath = path.join(rootDir, "nada_quickstart_programs");
-
-  // Explicitly create the directory
-  // fs.mkdirSync(nadaProjectPath, { recursive: true });
-
-  // process.chdir(rootDir);
-
-  // Initialize Nada project
   execSync("nada init nada_quickstart_programs", { stdio: "inherit" });
-
-  // process.chdir(nadaProjectPath);
-
-  // Create and activate Python virtual environment
   execSync("python3 -m venv .venv", { stdio: "inherit" });
 
   // Determine the correct activate script based on the OS
@@ -79,22 +67,15 @@ function setupNadaFolder(rootDir) {
 
 function createNextJsProject(rootDir) {
   console.log("--------------------");
-  console.log("Creating Next.js project...");
+  console.log("Cloning Next.js project...");
   const nextAppPath = path.join(rootDir, "nillion-app");
   fs.mkdirSync(nextAppPath, { recursive: true });
   process.chdir(nextAppPath);
 
+  console.log("Note: Degit is used to clone the Next.js project.");
   execSync("npx degit NillionNetwork/client-ts/examples/nextjs .", {
     stdio: "inherit",
   });
-
-  // execSync(
-  //   `npx create-next-app@latest . --typescript --eslint --app --src-dir --use-npm`,
-  //   { stdio: "inherit" }
-  // );
-  // execSync("npm install -P @nillion/client-react-hooks@latest", {
-  //   stdio: "inherit",
-  // });
   process.chdir(rootDir);
 }
 
@@ -120,12 +101,10 @@ function main() {
   displayWelcomeMessage();
 
   console.log("Checking if Nilup is installed...");
-  //TODO: Detect if nilup is already installed
   if (!isNilupInstalled()) {
     installNilup();
   }
 
-  // Create the root directory
   fs.mkdirSync(projectName, { recursive: true });
   process.chdir(projectName);
 
@@ -134,11 +113,9 @@ function main() {
   updatePackageJson(process.cwd());
 
   console.log(
-    `Nillion quickstart "${projectName}" has been created successfully!`
+    `Nillion quickstart "${projectName}" has been created successfully! 🚀`
   );
-  console.log(
-    `To activate the Nada virtual environment, first cd into the nillion-app directory, then run: npm run nada:activate`
-  );
+  console.log(`Follow the rest of the Documenation Quickstart to get started!`);
 }
 
 main();
