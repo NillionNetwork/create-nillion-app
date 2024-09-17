@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"target": "ES2020",
+		"sourceMap": true,
+		"outDir": "dist",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"incremental": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"allowJs": true
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules", "create-nillion-app*"]
+}
