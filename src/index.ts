@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import fs from 'fs';
-import chalk from 'chalk';
+// import chalk from 'chalk';
 import { displayLogo } from './functions/displayLogo.js';
 import { displayWelcomeMessage } from './functions/displayWelcomeMessage.js';
 import { isNilupInstalled } from './functions/isNilupInstalled.js';
@@ -22,7 +22,6 @@ async function main() {
 
   fs.mkdirSync(projectName, { recursive: true });
   process.chdir(projectName);
-  console.log(`Created a new Nillion project in directory: ${chalk.green(projectName)}`);
 
   setupNadaFolder(process.cwd());
   createNextJsProject(process.cwd());
