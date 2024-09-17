@@ -2,8 +2,11 @@
   "name": "@crypblizz/create-nillion-app",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --loader ts-node/esm src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cleanup": "rm -rf nillion-quickstart*/"
   },
   "keywords": [
     "nillion",
@@ -16,5 +19,16 @@
   "description": "Quickstart a new Nillion app",
   "bin": {
     "create-nillion-app": "./bin/create-nillion-app.js"
+  },
+  "dependencies": {
+    "@tsconfig/node16": "^16.1.3",
+    "@types/node": "^22.5.5",
+    "chalk": "^5.3.0",
+    "prompts": "^2.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.4.9"
   }
 }
