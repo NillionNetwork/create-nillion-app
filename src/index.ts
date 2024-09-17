@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
+import fs from "fs";
 // import chalk from 'chalk';
-import { displayLogo } from './functions/displayLogo.js';
-import { displayWelcomeMessage } from './functions/displayWelcomeMessage.js';
-import { isNilupInstalled } from './functions/isNilupInstalled.js';
-import { installNilup } from './functions/installNilup.js';
-import { setupNadaFolder } from './functions/setupNadaFolder.js';
-import { createNextJsProject } from './functions/createNextJsProject.js';
+import { displayLogo } from "./functions/displayLogo.js";
+import { displayWelcomeMessage } from "./functions/displayWelcomeMessage.js";
+import { isNilupInstalled } from "./functions/isNilupInstalled.js";
+import { installNilup } from "./functions/installNilup.js";
+import { setupNadaFolder } from "./functions/setupNadaFolder.js";
+import { createNextJsProject } from "./functions/createNextJsProject.js";
 
 async function main() {
   const projectName = "nillion-quickstart";
@@ -36,6 +36,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error('Unexpected error. Please report it as a bug:');
+  console.error("Unexpected error. Please report it as a bug:");
   console.error(err);
 });

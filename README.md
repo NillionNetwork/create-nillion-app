@@ -3,10 +3,10 @@
 A CLI tool to create a new Nillion app with Next.js integration.
 
 ## Usage
+
 This will create a new Nillion app in the `my-nillion-app` directory.
 
 `npx create-nillion-app my-nillion-app`
-
 
 ## What it does
 
