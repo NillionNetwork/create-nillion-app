@@ -1,4 +1,4 @@
-import { execSync } from 'child_process';
+import { execSync } from "child_process";
 
 export function installNilup(): void {
   console.log("--------------------");
