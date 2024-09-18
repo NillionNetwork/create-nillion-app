@@ -8,7 +8,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "cleanup": "rm -rf nillion-quickstart*/"
+    "cleanup": "rm -rf nillion-quickstart*/",
+    "prepare": "husky",
+    "type-check": "tsc --noEmit",
+    "pre-commit": "lint-staged && npm run type-check"
+  },
+  "lint-staged": {
+    "*.{js,ts, mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": "prettier --write"
   },
   "keywords": [
     "nillion",
@@ -23,6 +33,8 @@
     "create-nillion-app": "./bin/create-nillion-app.js"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@eslint/js": "^9.10.0",
     "@tsconfig/node16": "^16.1.3",
     "@types/node": "^22.5.5",
@@ -34,6 +46,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "prompts": "^2.4.2",
     "ts-node": "^10.9.2",
