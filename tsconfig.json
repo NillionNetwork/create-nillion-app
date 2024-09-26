@@ -1,21 +1,17 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "ES2020",
-    "sourceMap": true,
-    "outDir": "dist",
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["ES2018", "DOM"],
+    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "allowJs": true
+    "outDir": "./dist",
+    "types": ["node", "jest"],
+    "rootDir": "."
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", "create-nillion-app*"]
+  "include": ["src/**/*", "bin/**/*", "tests/**/*", "*.js", "*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
