@@ -1,4 +1,4 @@
-# create-nillion-app
+# Create Nillion App
 
 A CLI tool to create a new Nillion app with Next.js integration.
 
@@ -6,14 +6,26 @@ A CLI tool to create a new Nillion app with Next.js integration.
 
 This will create a new Nillion app in the `my-nillion-app` directory.
 
-`npx create-nillion-app my-nillion-app`
+`npx create-nillion-app`
 
 ## What it does
 
 1. Installs `nilup`, the Nillion SDK tool installer and version manager
-2. Creates a Next.js project with App Router
-3. Installs `@nillion/client-react-hooks`
-4. Sets up a `nillion` folder for SDK access
+2. Install an Nada projects
+3. Clones an example Next.js project with App Router
+   a. Installs `@nillion/client-react-hooks`
+   b.
+
+Directory tree should look like:
+
+```
+.
+├── nada_quickstart_programs
+│   ├── XXX
+└── nillion-app
+    ├── XXX
+
+```
 
 ## Requirements
 

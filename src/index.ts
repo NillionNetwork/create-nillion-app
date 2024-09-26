@@ -10,6 +10,7 @@ import { setupNadaFolder } from "./functions/setupNadaFolder.js";
 import { createNextJsProject } from "./functions/createNextJsProject.js";
 
 async function main() {
+  //TODO: Add in steps to name the respective folders
   const projectName = "nillion-quickstart";
 
   displayLogo();
