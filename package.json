@@ -8,12 +8,13 @@
     "dev": "node --loader ts-node/esm src/index.ts",
     "start": "node dist/index.js",
     "build": "rm -rf dist && tsc",
-    "test": "jest",
-    "lint": "eslint . --fix",
-    "format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "cleanup": "rm -rf nillion-quickstart*/",
+    "test": "jest",
+    "format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "prepare": "husky",
+    "lint": "eslint . --fix",
     "type-check": "tsc --noEmit",
+    "check": "npm run type-check && npm run lint",
     "pre-commit": "lint-staged && npm run type-check"
   },
   "lint-staged": {
@@ -30,7 +31,7 @@
     "quickstart"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "author": "nillion",
   "license": "MIT",
