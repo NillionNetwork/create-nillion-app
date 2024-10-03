@@ -1,5 +1,5 @@
 {
-  "name": "@crypblizz/create-nillion-app",
+  "name": "@nillion/create-nillion-app",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,7 +29,10 @@
     "create-nillion-app",
     "quickstart"
   ],
-  "author": "crypblizz",
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "nillion",
   "license": "MIT",
   "description": "Quickstart a new Nillion app",
   "bin": {
