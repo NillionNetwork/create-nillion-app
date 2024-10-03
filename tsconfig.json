@@ -12,6 +12,6 @@
     "types": ["node", "jest"],
     "rootDir": "."
   },
-  "include": ["src/**/*", "bin/**/*", "tests/**/*", "*.js", "*.ts"],
+  "include": ["src/**/*", "bin/**/*", "tests/**/*", "*.js", "*.ts", "*.mjs"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
