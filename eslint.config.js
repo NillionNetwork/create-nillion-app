@@ -40,4 +40,7 @@ export default [
       ...eslintPluginJest.configs.recommended.rules,
     },
   },
+  {
+    ignores: ["examples/**/*"],
+  },
 ];

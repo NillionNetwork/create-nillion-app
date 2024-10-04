@@ -1,17 +1,26 @@
 import fs from "fs";
 import path from "path";
-import { execSync } from "child_process";
+import { fileURLToPath } from "url";
+import { setupNadaFolder } from "./setupNadaFolder.js";
 
 export function createNextJsProject(rootDir: string): void {
   console.log("--------------------");
-  console.log("Cloning Next.js project...");
-  const nextAppPath: string = path.join(rootDir, "nillion-app");
-  fs.mkdirSync(nextAppPath, { recursive: true });
-  process.chdir(nextAppPath);
+  console.log("Creating Next.js project... ");
+  console.log("This should take ~ 1 minute. Feel free to go stretch you legs / grab a coffee ☕️");
+  const nextAppPath: string = path.join(rootDir);
 
-  console.log("Note: Degit is used to clone the Next.js project.");
-  execSync("npx degit NillionNetwork/client-ts/examples/nextjs .", {
-    stdio: "inherit",
-  });
-  process.chdir(rootDir);
+  const currentFilePath = fileURLToPath(import.meta.url);
+  const currentDir = path.dirname(currentFilePath);
+  const examplesPath = path.join(currentDir, "..", "..", "examples", "nextjs");
+
+  if (!fs.existsSync(examplesPath)) {
+    throw new Error(`Next.js example not found at ${examplesPath}`);
+  }
+
+  fs.cpSync(examplesPath, nextAppPath, { recursive: true });
+
+  setupNadaFolder(process.cwd());
+
+  console.log(`Next.js project created successfully at ${nextAppPath}!`);
+  console.log("--------------------");
 }

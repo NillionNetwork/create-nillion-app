@@ -59,11 +59,17 @@
     "husky": "^9.1.6",
     "jest": "^29.7.0",
     "lint-staged": "^15.2.10",
+    "open": "^10.1.0",
     "prettier": "^3.3.3",
     "prompts": "^2.4.2",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.6.0"
+  },
+  "dependencies": {
+    "@nillion/client-core": "0.1.0-rc.16",
+    "@nillion/client-react-hooks": "0.1.0-rc.16",
+    "@nillion/client-vms": "0.1.0-rc.16"
   }
 }
