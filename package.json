@@ -6,9 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --loader ts-node/esm src/index.ts",
-    "start": "node dist/index.js",
     "build": "rm -rf dist && tsc",
-    "cleanup": "rm -rf nillion-quickstart*/",
+    "publish": "npm run build && npm publish --access=public",
     "test": "jest",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "prepare": "husky",

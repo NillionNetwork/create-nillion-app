@@ -15,6 +15,7 @@ async function main() {
   displayWelcomeMessage();
 
   const projectName = await promptForProjectName();
+  console.log("--------------------");
   console.log(`Creating project: ${projectName}`);
   console.log("--------------------");
   console.log("Checking if Nilup is installed...");
