@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useNilFetchValue } from "@nillion/client-react-hooks";
 
 export default function FetchValue() {
@@ -27,7 +27,7 @@ export default function FetchValue() {
       />
       <button
         className={`flex items-center justify-center w-40 px-4 py-2 mt-4 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 ${
-          !id || nilFetch.isLoading ? 'opacity-50 cursor-not-allowed' : ''
+          !id || nilFetch.isLoading ? "opacity-50 cursor-not-allowed" : ""
         }`}
         onClick={handleClick}
         disabled={!id || nilFetch.isLoading}
@@ -35,14 +35,14 @@ export default function FetchValue() {
         {nilFetch.isLoading ? (
           <div className="w-5 h-5 border-t-2 border-b-2 border-gray-900 rounded-full animate-spin"></div>
         ) : (
-          <>
-            Fetch
-          </>
+          <>Fetch</>
         )}
       </button>
       <ul className="mt-4">
         <li className="mt-2">Status: {nilFetch.status}</li>
-        <li className="mt-2">Secret: {nilFetch.isSuccess ? nilFetch.data : "idle"}</li>
+        <li className="mt-2">
+          Secret: {nilFetch.isSuccess ? nilFetch.data : "idle"}
+        </li>
       </ul>
     </div>
   );

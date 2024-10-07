@@ -57,24 +57,29 @@ export const Compute: FC = () => {
           "Compute"
         )}
       </button>
-      <p className="my-2 italic text-sm mt-2">Current values are 4 & 2. Refer to ComputeOutput.tsx</p>
+      <p className="my-2 italic text-sm mt-2">
+        Current values are 4 & 2. Refer to ComputeOutput.tsx
+      </p>
       <ul className="list-disc pl-5 mt-4">
         <li className="mt-2">Status: {nilCompute.status}</li>
         <li className="mt-2">
-          Compute output id: {nilCompute.isSuccess ? (
+          Compute output id:
+          {nilCompute.isSuccess ? (
             <>
               {`${nilCompute.data?.substring(0, 4)}...${nilCompute.data?.substring(nilCompute.data.length - 4)}`}
               <button
                 onClick={() => {
                   setCopiedComputeOutputID(true);
-                  navigator.clipboard.writeText(nilCompute.data)
+                  navigator.clipboard.writeText(nilCompute.data);
                   setTimeout(() => setCopiedComputeOutputID(false), 2000);
                 }}
               >
                 {!copiedComputeOutputID ? " 📋" : " ✅"}
               </button>
             </>
-          ) : "idle"}
+          ) : (
+            "idle"
+          )}
         </li>
       </ul>
     </div>

@@ -85,19 +85,23 @@ export const StoreProgram: FC = () => {
         <li className="mt-2">Status: {nilStoreProgram.status}</li>
         <li className="mt-2">File name: {fileName || "unset"}</li>
         <li className="mt-2">
-          Program id: {nilStoreProgram.isSuccess ? (
+          Program id:
+          {nilStoreProgram.isSuccess ? (
             <>
               {`${nilStoreProgram.data?.substring(0, 4)}...${nilStoreProgram.data?.substring(nilStoreProgram.data.length - 4)}`}
               <button
                 onClick={() => {
                   setProgramIDCopied(true);
-                  navigator.clipboard.writeText(nilStoreProgram.data)
-                  setTimeout(() => setProgramIDCopied(false), 2000);                }}
+                  navigator.clipboard.writeText(nilStoreProgram.data);
+                  setTimeout(() => setProgramIDCopied(false), 2000);
+                }}
               >
                 {!copiedProgramID ? " 📋" : " ✅"}
               </button>
             </>
-          ) : "idle"}
+          ) : (
+            "idle"
+          )}
         </li>
       </ul>
     </div>
