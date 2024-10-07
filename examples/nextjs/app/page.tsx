@@ -1,7 +1,7 @@
-import { WelcomeContent } from "@/app/components/WelcomeContent";
-import { Login } from "@/app/components/Login";
-import StoreValue from "@/app/components/StoreValue";
-import FetchValue from "@/app/components/FetchValue";
+import { WelcomeContent } from "./components/WelcomeContent";
+import { Login } from "./components/Login";
+import StoreValue from "./components/StoreValue";
+import FetchValue from "./components/FetchValue";
 
 export default function Home() {
   return (

@@ -31,7 +31,7 @@ export const WelcomeContent = () => {
                     <code className="bg-gray-700 rounded-md p-1 mx-1">
                         nillion-devnet
                     </code> 
-                    in your terminal
+                    in a separate terminal.
                 </li>       
             </ol>
         </> 
