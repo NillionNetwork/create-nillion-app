@@ -16,12 +16,12 @@ export default function FetchValue() {
   };
 
   return (
-    <div className="border border-gray-400 rounded-lg p-4">
-      <h2 className="text-2xl font-bold mb-4">Fetch Secret Integer</h2>
+    <div className="border border-gray-400 rounded-lg p-4 w-full max-w-md">
+      <h2 className="text-2xl font-bold mb-2">Fetch Value</h2>
       <input
         type="text"
-        className="w-full p-2 mb-4 border border-gray-300 rounded text-black"
-        placeholder="Store identifier"
+        className="w-full p-2 mb-2 border border-gray-300 rounded text-black"
+        placeholder="Store id"
         value={id}
         onChange={(e) => setId(e.target.value)}
       />

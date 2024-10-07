@@ -11,9 +11,9 @@ export const WelcomeContent = () => {
                 height={38}
                 priority
             />
-            <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+            <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] mt-4">
                 <li className="mb-2">
-                    Follow along the quickstart guide here: [LINK]
+                    Follow along the quickstart guide <a href="https://github.com/NillionNetwork/awesome-nillion/issues/2" target="_blank" className="underline" rel="noopener noreferrer">here</a>
                 </li>
                 <li className="mb-2">
                     Reach out to us on {""}
@@ -26,7 +26,7 @@ export const WelcomeContent = () => {
                     </a> 
                     {""} if you get stuck
                 </li> 
-                <li className="mb-2">
+                <li>
                     Make sure you are running 
                     <code className="bg-gray-700 rounded-md p-1 mx-1">
                         nillion-devnet

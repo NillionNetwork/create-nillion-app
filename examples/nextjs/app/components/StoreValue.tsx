@@ -14,11 +14,11 @@ export default function StoreValue() {
   };
 
   return (
-    <div className="border border-gray-400 rounded-lg p-4 mr-2">
-      <h2 className="text-2xl font-bold mb-4">Store Secret Integer</h2>
+    <div className="border border-gray-400 rounded-lg p-4 w-full max-w-md">
+      <h2 className="text-2xl font-bold mb-2">Store Secret Integer</h2>
       <input
         type="number"
-        className="w-full p-2 mb-4 border border-gray-300 rounded text-black"
+        className="w-full p-2 mb-2 border border-gray-300 rounded text-black"
         placeholder="Secret value"
         value={secret || ''}
         onChange={(e) => setSecret(Number(e.target.value))}
