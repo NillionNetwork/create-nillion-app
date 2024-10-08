@@ -1,6 +1,10 @@
-## Nextjs Example for Create Nillion App
+## Nextjs Example for Create Nillion App (CNA)
 
-First, run the development server:
+![Example Demo](./public/example_demo.png)
+
+Welcome the Nextjs Example for CNA.
+
+Once the CLI insturctions have finished, you can run the developent server:
 
 ```bash
 npm run dev
@@ -14,6 +18,4 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### INFO
-
-ADD MORE...
+Then follow the rest of the instructions from the Quickstart guide [here.](https://github.com/NillionNetwork/awesome-nillion/issues/2)
