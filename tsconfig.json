@@ -1,17 +1,19 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "lib": ["ES2018", "DOM"],
+    "target": "es2022",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "lib": ["es2023"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "types": ["node", "jest"],
-    "rootDir": "."
+    "rootDir": ".",
+    "types": ["node", "jest"]
   },
-  "include": ["src/**/*", "bin/**/*", "tests/**/*", "*.js", "*.ts"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["src/**/*", "bin/**/*", "tests/**/*", "*.js", "*.ts", "*.mjs"],
+  "exclude": ["node_modules", "**/*.spec.ts", "examples/**/*"]
 }

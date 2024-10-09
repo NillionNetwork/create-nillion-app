@@ -1,4 +1,4 @@
-name: Initial Tests
+name: Release
 
 on:
   push:
@@ -20,6 +20,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - env:
+        NODE_AUTH_TOKEN:
+          ${{ secrets.NPM_TOKEN }}
     - run: npm install
-    - run: npm test
-    - run: npm run build
+    - run: npm run release

@@ -1,22 +1,25 @@
 #!/usr/bin/env node
 
 import fs from "fs";
-// import chalk from 'chalk';
 import { displayLogo } from "./functions/displayLogo.js";
 import { displayWelcomeMessage } from "./functions/displayWelcomeMessage.js";
 import { isNilupInstalled } from "./functions/isNilupInstalled.js";
 import { installNilup } from "./functions/installNilup.js";
-import { setupNadaFolder } from "./functions/setupNadaFolder.js";
 import { createNextJsProject } from "./functions/createNextJsProject.js";
+import { promptForProjectName } from "./functions/nameRepo.js";
+import { installDependencies } from "./functions/installRepoPackage.js";
+import open from "open";
 
 async function main() {
-  //TODO: Add in steps to name the respective folders
-  const projectName = "nillion-quickstart";
-
   displayLogo();
   displayWelcomeMessage();
 
+  const projectName = await promptForProjectName();
+  console.log("--------------------");
+  console.log(`Creating project: ${projectName}`);
+  console.log("--------------------");
   console.log("Checking if Nilup is installed...");
+
   if (!isNilupInstalled()) {
     installNilup();
   }
@@ -24,15 +27,19 @@ async function main() {
   fs.mkdirSync(projectName, { recursive: true });
   process.chdir(projectName);
 
-  setupNadaFolder(process.cwd());
   createNextJsProject(process.cwd());
 
-  // TODO: Add more step for venvs / nillion-devnet
+  await installDependencies();
 
-  // Add next steps
   console.log("--------------------");
   console.log(`Nillion quickstart has been created successfully! 🚀`);
-  console.log(`Follow the rest of the Documenation Quickstart to get started!`);
+  console.log(
+    `Cd into your repo + run "npm run dev" and open localhost:3000 in your browser to see your new project.`,
+  );
+  console.log("--------------------");
+  console.log(`Follow the rest of the Quickstart Guide to get started!`);
+  console.log("Opening the Nillion Quickstart Guide in your browser...");
+  open("https://github.com/NillionNetwork/awesome-nillion/issues/2");
   console.log("--------------------");
 }
 

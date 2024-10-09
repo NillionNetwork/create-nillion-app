@@ -1,19 +1,19 @@
 {
-  "name": "@crypblizz/create-nillion-app",
+  "name": "@nillion/create-nillion-app",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "node --loader ts-node/esm src/index.ts",
-    "start": "node dist/index.js",
     "build": "rm -rf dist && tsc",
+    "publish": "npm run build && npm publish --access=public",
     "test": "jest",
-    "lint": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "cleanup": "rm -rf nillion-quickstart*/",
     "prepare": "husky",
+    "lint": "eslint . --fix",
     "type-check": "tsc --noEmit",
+    "check": "npm run type-check && npm run lint",
     "pre-commit": "lint-staged && npm run type-check"
   },
   "lint-staged": {
@@ -29,7 +29,10 @@
     "create-nillion-app",
     "quickstart"
   ],
-  "author": "crypblizz",
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "nillion",
   "license": "MIT",
   "description": "Quickstart a new Nillion app",
   "bin": {
@@ -40,6 +43,7 @@
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/js": "^9.10.0",
     "@tsconfig/node16": "^16.1.3",
+    "@tsconfig/node20": "^20.1.4",
     "@types/jest": "^29.5.13",
     "@types/node": "^22.5.5",
     "@types/prompts": "^2.4.9",
@@ -54,11 +58,17 @@
     "husky": "^9.1.6",
     "jest": "^29.7.0",
     "lint-staged": "^15.2.10",
+    "open": "^10.1.0",
     "prettier": "^3.3.3",
     "prompts": "^2.4.2",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.6.0"
+  },
+  "dependencies": {
+    "@nillion/client-core": "0.1.0-rc.16",
+    "@nillion/client-react-hooks": "0.1.0-rc.16",
+    "@nillion/client-vms": "0.1.0-rc.16"
   }
 }

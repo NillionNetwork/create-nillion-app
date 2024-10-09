@@ -28,6 +28,7 @@ export default [
       ...eslintPluginPrettier.configs.recommended.rules,
       "prettier/prettier": "error",
       ...eslintPluginJest.configs.recommended.rules,
+      "@typescript-eslint/no-unused-vars": "error",
     },
   },
   js.configs.recommended,
@@ -38,5 +39,8 @@ export default [
     rules: {
       ...eslintPluginJest.configs.recommended.rules,
     },
+  },
+  {
+    ignores: ["examples/**/*"],
   },
 ];
