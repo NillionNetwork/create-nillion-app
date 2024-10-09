@@ -10,7 +10,7 @@
     "format": "npx prettier . --write"
   },
   "dependencies": {
-    "@nillion/client-react-hooks": "^0.1.0-rc.16",
+    "@nillion/client-react-hooks": "^0.1.0",
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18"
