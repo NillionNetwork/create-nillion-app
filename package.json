@@ -1,13 +1,12 @@
 {
   "name": "@nillion/create-nillion-app",
-  "version": "1.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "0.1.0-rc.13",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "type": "module",
   "scripts": {
-    "dev": "node --loader ts-node/esm src/index.ts",
-    "build": "rm -rf dist && tsc",
-    "publish": "npm run build && npm publish --access=public",
+    "dev": "node --import=./src/utils/register.js src/index.ts",
+    "build": "rm -rf dist && tsc && cp -r examples dist/",
     "test": "jest",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "prepare": "husky",
@@ -36,7 +35,17 @@
   "license": "MIT",
   "description": "Quickstart a new Nillion app",
   "bin": {
-    "create-nillion-app": "./dist/index.js"
+    "create-nillion-app": "./dist/src/index.js"
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md"
+  ],
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "open": "^10.1.0",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
@@ -65,10 +74,5 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.6.0"
-  },
-  "dependencies": {
-    "@nillion/client-core": "0.1.0-rc.16",
-    "@nillion/client-react-hooks": "0.1.0-rc.16",
-    "@nillion/client-vms": "0.1.0-rc.16"
   }
 }
