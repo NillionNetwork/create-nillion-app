@@ -1,12 +1,31 @@
-import { execSync } from "child_process";
+import { exec, ExecException } from "child_process";
+import { promisify } from "util";
+const execAsync = promisify(exec);
 
-export function installNilup(): void {
+interface ExecError extends ExecException {
+  stdout?: string;
+  stderr?: string;
+}
+
+export async function installNilup() {
   console.log("--------------------");
   console.log("Installing nilup... This may take a few minutes.🙏 ");
-  execSync("curl -fsSL https://nilup.nilogy.xyz/install.sh | sh", {
-    stdio: "inherit",
-  });
-  execSync("nilup install latest", { stdio: "inherit" });
-  execSync("nilup use latest", { stdio: "inherit" });
-  execSync("nilup init", { stdio: "inherit" });
+
+  try {
+    await execAsync("curl https://nilup.nilogy.xyz/install.sh | sh", {
+      shell: process.env.SHELL || "/bin/sh",
+      env: { ...process.env, FORCE_COLOR: "1" },
+    });
+  } catch (error: unknown) {
+    const execError = error as ExecError;
+    // Strange here: errors even on successful installation so extra catch.
+    if (execError.stderr && execError.stderr.includes("You may begin using nilup now!")) {
+      console.log("Nilup installed or updated successfully!");
+    } else {
+      console.error("Failed to install Nilup. Error details:", execError.message);
+      if (execError.stdout) console.error("stdout:", execError.stdout);
+      if (execError.stderr) console.error("stderr:", execError.stderr);
+      throw error;
+    }
+  }
 }
