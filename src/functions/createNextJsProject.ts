@@ -12,13 +12,6 @@ export function createNextJsProject(rootDir: string): void {
   const pkgRoot = path.resolve(fileURLToPath(import.meta.url), "..", "..", "..");
   const examplesPath = path.join(pkgRoot, "examples", "nextjs");
 
-  // Use import.meta.url correctly
-  //  const nextAppPath: string = path.join(rootDir);
-  //  const currentFilePath = fileURLToPath(import.meta.url);
-  //  const currentDir = path.dirname(currentFilePath);
-  //  const pkgRoot = path.resolve(currentDir, '..', '..');
-  //  const examplesPath = path.join(pkgRoot, 'examples', 'nextjs');
-
   if (!fs.existsSync(examplesPath)) {
     throw new Error(`Next.js example not found at ${examplesPath}`);
   }
