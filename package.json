@@ -1,6 +1,6 @@
 {
   "name": "@nillion/create-nillion-app",
-  "version": "0.1.0-rc.14",
+  "version": "0.1.0-rc.16",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "type": "module",

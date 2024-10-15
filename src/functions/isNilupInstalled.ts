@@ -6,7 +6,9 @@ export async function isNilupInstalled() {
     const output = execSync("nilup -V", { stdio: "pipe" }).toString().trim();
     console.log(`Nilup is already installed. Version: ${output}`);
   } catch (error: unknown) {
-    console.log("Nilup is not installed.", error);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const _ = error; // Explicitly declare unused variable
+    // console.log("Nilup is not installed.", error);
     await installNilup();
   }
 }
