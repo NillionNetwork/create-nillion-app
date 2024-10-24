@@ -5,7 +5,7 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 FROM node:23-alpine3.19 AS dev
-RUN apk add python3
+RUN apk add "python3>3.10"
 RUN apk add curl
 RUN curl -fsSL https://nilup.nilogy.xyz/install.sh | sh
 ENV PATH="$PATH:/root/.nilup/bin"
