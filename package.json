@@ -11,14 +11,14 @@
     "test": "jest",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "prepare": "husky",
-    "lint": "eslint . --fix",
+    "lint": "eslint src --fix",
     "type-check": "tsc --noEmit",
     "check": "npm run type-check && npm run lint",
     "pre-commit": "lint-staged && npm run type-check"
   },
   "lint-staged": {
     "*.{js,ts, mjs}": [
-      "eslint --fix",
+      "eslint src --fix",
       "prettier --write"
     ],
     "*.{json,md}": "prettier --write"
@@ -69,6 +69,7 @@
   "dependencies": {
     "@nillion/client-core": "0.1.0-rc.16",
     "@nillion/client-react-hooks": "0.1.0-rc.16",
-    "@nillion/client-vms": "0.1.0-rc.16"
+    "@nillion/client-vms": "0.1.0-rc.16",
+    "eta": "^3.5.0"
   }
 }
