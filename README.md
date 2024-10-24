@@ -45,8 +45,13 @@ Directory tree should look like:
 
 ## Requirements
 
+If you are comfortable managing your environment, we suggest the following dependencies:
+
 - Node.js 18.0.0 or later
 - npm 6.0.0 or later
+- Python 3.10 or later
+
+Otherwise, just use [Docker](docker.com) and choose it during project setup.
 
 ## License
 
