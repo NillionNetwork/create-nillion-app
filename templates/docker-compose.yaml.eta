@@ -1,0 +1,21 @@
+services:
+  <%= it.projectName %>:
+    restart: always
+    environment:
+      - WATCHPACK_POLLING=true
+      - NODE_ENV=development
+    build:
+      context: ./
+      target: dev
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/nillion
+    command: npx next dev
+    healthcheck:
+      test: curl -fSs http://127.0.0.1:3000 || exit 1
+      start_period: 180s
+      timeout: 10s
+      interval: 10s
+      retries: 3
