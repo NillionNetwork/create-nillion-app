@@ -8,5 +8,5 @@ import { NillionProvider } from "@nillion/client-react-hooks";
 export const ClientWrapper: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  return <NillionProvider network="photon">{children}</NillionProvider>;
+  return <NillionProvider network="devnet">{children}</NillionProvider>;
 };
