@@ -1,24 +1,6 @@
-import Image from "next/image";
-
 export const WelcomeContent = () => {
   return (
-    <>
-     <Image
-        src="/logo.svg"
-        alt="Next.js logo"
-        width={180}
-        height={38}
-        priority
-        className="hidden dark:block"
-      />
-      <Image
-        src="/dark_logo.svg"
-        alt="Next.js logo"
-        width={180}
-        height={38}
-        priority
-        className="block dark:hidden"
-      />
+    <div className="max-w-4xl">
       <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] mt-4">
         <li className="mb-2">
           Follow along the quickstart guide {" "}
@@ -32,6 +14,13 @@ export const WelcomeContent = () => {
           </a>
         </li>
         <li className="mb-2">
+          Make sure you are running
+          <code className="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-md p-1 mx-1">
+            nillion-devnet
+          </code>
+          in a separate terminal.
+        </li>
+        <li className="mb-2">
           Reach out to us on {" "}
           <a
             href="https://github.com/orgs/NillionNetwork/discussions"
@@ -43,14 +32,7 @@ export const WelcomeContent = () => {
           </a>
           {""} if you get stuck
         </li>
-        <li>
-          Make sure you are running
-          <code className="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-md p-1 mx-1">
-            nillion-devnet
-          </code>
-          in a separate terminal.
-        </li>
       </ol>
-    </>
+    </div>
   );
 };
