@@ -10,7 +10,7 @@ export const TestNetContent = () => {
             <code className="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-md p-1 mx-1">
               ClientWrapper.tsx
             </code>
-            to "photon"
+            to &quot;photon&quot;
           </li>
           <li className="mb-2">
             Ensure you have a Keplr Wallet

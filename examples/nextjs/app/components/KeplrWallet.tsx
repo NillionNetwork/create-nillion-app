@@ -4,6 +4,11 @@ import { useState } from "react";
 import { useNillionAuth, UserCredentials } from "@nillion/client-react-hooks";
 import { config } from "../config/Chain";
 import Image from "next/image";
+import { Window as KeplrWindow } from "@keplr-wallet/types";
+
+declare global {
+  interface Window extends KeplrWindow {}
+}
 
 const SEED = "example-secret-seed";
 
@@ -15,8 +20,8 @@ const KeplrWalletConnector = () => {
 
   const checkKeplr = async () => {
     try {
-      //@ts-ignore
-      if (!window.keplr) {
+      const keplr = window.keplr;
+      if (!keplr) {
         throw new Error("Please install Keplr extension");
       }
     } catch (err:unknown) {
@@ -33,29 +38,28 @@ const KeplrWalletConnector = () => {
       await checkKeplr();
       
       const chainId = "nillion-chain-testnet-1";
-
+      const keplr = window.keplr;
+      if (!keplr) {
+        throw new Error("Keplr not found");
+      }
+  
       try {
-        //@ts-ignore
-        await window.keplr.getKey(chainId);
+        await keplr.getKey(chainId);
         console.log("Chain already exists in Keplr!");
       } catch {
-        // If getKey fails, chain isn't added yet
         console.log("Adding new chain to Keplr...");
-        //@ts-ignore
-        await window.keplr.experimentalSuggestChain(config);
+        await keplr.experimentalSuggestChain(config);
       }
-      //@ts-ignore
-      await window.keplr.enable(chainId);
+      await keplr.enable(chainId);
     } catch (error:unknown) {
       console.error("Error:", error);
-      //@ts-ignore
-      if (error.message.includes("chain not supported")) {
+      if (error instanceof Error && error.message.includes("chain not supported")) {
         console.log("This chain needs to be manually added with chainInfo configuration");
       }
       throw error;
     }
   };
-
+  
   const handleLogin = async () => {
     try {
       setIsLoading(true);
@@ -63,8 +67,13 @@ const KeplrWalletConnector = () => {
       
       const chainId = "nillion-chain-testnet-1";
       await addDevnetChain();
-      //@ts-ignore
-      const offlineSigner = window.keplr.getOfflineSigner(chainId);
+      
+      const keplr = window.keplr;
+      if (!keplr) {
+        throw new Error("Keplr not found");
+      }
+      
+      const offlineSigner = keplr.getOfflineSigner(chainId);
       const accounts = await offlineSigner.getAccounts();
       
       if (!accounts || accounts.length === 0) {
