@@ -19,44 +19,46 @@ export function createNextJsProject(rootDir: string): void {
   fs.cpSync(examplesPath, nextAppPath, { recursive: true });
 
   const gitignorePath = path.join(nextAppPath, ".gitignore");
-  const gitignoreContent = `# Dependencies
-  /node_modules
-  /.pnp
-  .pnp.js
-  .yarn/install-state.gz
+  const gitignoreContent = [
+    "# Dependencies",
+    "/node_modules",
+    "/.pnp",
+    ".pnp.js",
+    ".yarn/install-state.gz",
+    "",
+    "# Testing",
+    "/coverage",
+    "",
+    "# Next.js",
+    "/.next/",
+    "/out/",
+    "",
+    "# Production",
+    "/build",
+    "",
+    "# Misc",
+    ".DS_Store",
+    "*.pem",
+    "",
+    "# Debug",
+    "npm-debug.log*",
+    "yarn-debug.log*",
+    "yarn-error.log*",
+    "",
+    "# Local env files",
+    ".env*.local",
+    "",
+    "# Vercel",
+    ".vercel",
+    "",
+    "# TypeScript",
+    "*.tsbuildinfo",
+    "next-env.d.ts",
+    "",
+    "# Nada venv",
+    "nada/.venv/",
+  ].join("\n");
 
-  # Testing
-  /coverage
-
-  # Next.js
-  /.next/
-  /out/
-
-  # Production
-  /build
-
-  # Misc
-  .DS_Store
-  *.pem
-
-  # Debug
-  npm-debug.log*
-  yarn-debug.log*
-  yarn-error.log*
-
-  # Local env files
-  .env*.local
-
-  # Vercel
-  .vercel
-
-  # TypeScript
-  *.tsbuildinfo
-  next-env.d.ts
-
-  # Nada venv
-  nada/.venv/
-  `;
   fs.writeFileSync(gitignorePath, gitignoreContent);
 
   setupNadaFolder(process.cwd());
