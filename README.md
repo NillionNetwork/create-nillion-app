@@ -14,7 +14,7 @@ This will create a new Nillion app in the your desired directory.
 2. Clones an example Next.js project with App Router Settings
    a. Installs `@nillion/client-react-hooks` which has all your needs to use Nillion and Nada.
 3. Installs an Nada projects with a pyenv
-4. Then follow along the QuickStart [guide](https://github.com/NillionNetwork/awesome-nillion/issues/2) to do the following:
+4. Then follow along the QuickStart [guide](https://docs.nillion.com/quickstart-install) to do the following:
    - Create a simple Nada App
    - Connect a Nextjs <> Nada Program
 

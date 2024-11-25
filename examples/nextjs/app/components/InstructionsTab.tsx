@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import KeplrWalletConnector from './KeplrWallet';
-import { Login } from './Login';
+// import KeplrWalletConnector from './KeplrWallet';
+// import { Login } from './Login';
 import { TestNetContent } from './TestNetContent';
 import { WelcomeContent } from './WelcomeContent';
 
@@ -39,13 +39,13 @@ const InstructionsTab = () => {
           <div className="space-y-6">
             <h2 className={`text-2xl font-bold dark:text-white text-gray-800 mb-4`}>Devnet Instructions</h2>
             <WelcomeContent />
-            <Login />
+            {/* <Login /> */}
           </div>
         ) : (
           <div className="space-y-6">
             <h2 className={`text-2xl font-bold dark:text-white text-gray-800 mb-4`}>Testnet Instructions</h2>
             <TestNetContent />
-            <KeplrWalletConnector />
+            {/* <KeplrWalletConnector /> */}
           </div>
         )}
       </div>

@@ -34,7 +34,7 @@ async function main() {
 
     console.log(`Follow the rest of the Quickstart Guide to get started!`);
     console.log("Opening the Nillion Quickstart Guide in your browser...");
-    open("https://github.com/NillionNetwork/awesome-nillion/issues/2");
+    open("https://docs.nillion.com/quickstart-install?ref=CNA");
     console.log("--------------------");
   } catch (error) {
     console.error("An error occurred during the setup process:", error);
