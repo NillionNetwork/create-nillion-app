@@ -18,7 +18,7 @@ export const LoginButton: FC<LoginButtonProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const NETWORK: NetworkType = "testnet"; // devnet or testnet  <-- Change here.
+  const NETWORK: NetworkType = "devnet"; // devnet or testnet  <-- Change here.
   const isTestnet = (network: NetworkType): network is "testnet" => network === "testnet";
 
   const chainId = "nillion-chain-testnet-1";
@@ -29,17 +29,17 @@ export const LoginButton: FC<LoginButtonProps> = ({
 
     try {
       // For DEVNET
-      // const client = await createClient({
-      //   network: NETWORK,
-      // });
-
-      // Uncomment the following line to use TESTNET + Keplr wallet
       const client = await createClient({
         network: NETWORK,
-        seed: "example-user-seed",
-        //@ts-expect-error window keplr types
-        keplr: window.keplr,
       });
+
+      // Uncomment the following line to use TESTNET + Keplr wallet
+      // const client = await createClient({
+      //   network: NETWORK,
+      //   seed: "example-user-seed",
+      //   //@ts-expect-error window keplr types
+      //   keplr: window.keplr,
+      // });
 
       onClientCreated(client);
 
@@ -104,7 +104,7 @@ export const LoginButton: FC<LoginButtonProps> = ({
             Connecting...
           </span>
         ) : isConnected ? (
-          walletAddress && NETWORK === "testnet" ? (
+          walletAddress && isTestnet(NETWORK) ? (
             `${walletAddress?.substring(0, 11)}...${walletAddress?.substring(walletAddress.length - 3)}`
           ) : (
             "Logout"

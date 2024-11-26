@@ -12,7 +12,7 @@ This will create a new Nillion app in the your desired directory.
 
 1. Installs `nilup`, the Nillion SDK tool installer and version manager
 2. Clones an example Next.js project with App Router Settings
-   a. Installs `@nillion/client-react-hooks` which has all your needs to use Nillion and Nada.
+   a. Installs `@nillion/client-react-hooks` \* `@nillion/client-vms` which has all your needs to use Nillion and Nada.
 3. Installs an Nada projects with a pyenv
 4. Then follow along the QuickStart [guide](https://docs.nillion.com/quickstart-install) to do the following:
    - Create a simple Nada App
