@@ -11,6 +11,7 @@ export const InvokeCompute: FC = () => {
   const { client } = useNillion();
   const mutation = useNilInvokeCompute();
   const [programId, setProgramId] = useState("");
+  const [copiedComputeResult, setComputeResultCopied] = useState(false);
   const isValidProgramId = ProgramId.safeParse(programId).success;
 
   function handleChange(event: ChangeEvent<HTMLInputElement>): void {
@@ -52,7 +53,7 @@ export const InvokeCompute: FC = () => {
         Current values are 4 & 2. Refer to InvokeCompute.tsx
       </p>
       <div className="mt-2">
-        Program id:{" "}
+        Program Id:{" "}
         <input
           className="w-full p-2 mb-2 border border-gray-300 rounded text-black"
           type="text"
@@ -62,17 +63,19 @@ export const InvokeCompute: FC = () => {
       </div>
       <ol className="list-disc pl-5">
         <li className="mt-2">Status: {mutation.status}</li>
-        <li className="my-2">
-          Compute result id:
+        <li className="mt-2">
+          Compute result Id:
           {mutation.isSuccess ? (
             <>
               {`${resultId.substring(0, 4)}...${resultId.substring(resultId.length - 4)}`}
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(resultId);
+                  setComputeResultCopied(true);
+                  setTimeout(() => setComputeResultCopied(false), 2000);
                 }}
               >
-                📋
+                {!copiedComputeResult ? " 📋" : " ✅"}
               </button>
             </>
           ) : (
@@ -81,7 +84,7 @@ export const InvokeCompute: FC = () => {
         </li>
       </ol>
       <button
-        className={`flex items-center justify-center px-4 py-2 border rounded text-black mb-4 ${
+        className={`flex items-center justify-center px-4 py-2 border mt-2 rounded text-black mb-4 ${
           !isValidProgramId
             ? "opacity-50 cursor-not-allowed bg-gray-200"
             : "bg-white hover:bg-gray-100"

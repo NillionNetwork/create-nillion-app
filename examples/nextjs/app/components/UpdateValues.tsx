@@ -42,7 +42,7 @@ export const UpdateValues: FC = () => {
             type="text"
             value={id}
             onChange={handleChange}
-            placeholder="Store ID"
+            placeholder="Store Id"
             className="w-full p-2 mb-2 border border-gray-300 rounded text-black"
           />
         </li>
