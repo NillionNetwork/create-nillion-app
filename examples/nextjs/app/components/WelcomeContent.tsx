@@ -5,7 +5,7 @@ export const WelcomeContent = () => {
         <li className="mb-2">
           Follow along the quickstart guide {" "}
           <a
-            href="https://github.com/NillionNetwork/awesome-nillion/issues/2"
+            href="https://docs.nillion.com/quickstart"
             target="_blank"
             className="underline"
             rel="noopener noreferrer"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ClientWrapper } from "./components/ClientWrapper";
+// import { ClientWrapper } from "./components/ClientWrapper";
 
 export const metadata: Metadata = {
   title: "Create Nillion App",
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ClientWrapper>{children}</ClientWrapper>
+        {children}
       </body>
     </html>
   );

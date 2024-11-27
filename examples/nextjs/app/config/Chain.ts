@@ -1,6 +1,6 @@
 export const config = {
-  rpc: "https://testnet-nillion-rpc.lavenderfive.com",
-  rest: "https://testnet-nillion-api.lavenderfive.com",
+  rpc: "http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz",
+  rest: "https://api.testnet.nilchain-rpc-proxy.nilogy.xyz",
   nodeProvider: {
     name: "Lavender.Five",
     email: "hello@lavenderfive.com",
