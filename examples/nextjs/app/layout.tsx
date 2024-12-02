@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import { ClientWrapper } from "./components/ClientWrapper";
 
 export const metadata: Metadata = {
   title: "Create Nillion App",
@@ -15,6 +14,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <header className="flex justify-end items-center p-4 pr-6">
+          <a
+            href="https://github.com/NillionNetwork/create-nillion-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/lightmode-github.svg"
+              className="w-10 h-10 block dark:hidden"
+              alt="GitHub Icon (Light Mode)"
+            />
+            <img
+              src="/darkmode-github.svg"
+              className="w-10 h-10 hidden dark:block"
+              alt="GitHub Icon (Dark Mode)"
+            />
+          </a>
+        </header>
         {children}
       </body>
     </html>
