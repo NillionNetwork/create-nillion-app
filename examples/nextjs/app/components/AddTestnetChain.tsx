@@ -3,6 +3,38 @@ import { config } from "../config/Chain";
 import Image from "next/image";
 import { getKeplr } from "@nillion/client-react-hooks";
 
+
+const addDevnetChain = async () => {
+  try {
+    const keplr = await getKeplr();
+    if (!keplr) {
+      throw new Error("Keplr not found");
+    }
+
+    const chainId = "nillion-chain-testnet-1";
+    try {
+
+      await keplr.getKey(chainId);
+      console.log("Chain already exists in Keplr!");
+    } catch {
+      console.log("Adding new chain to Keplr...");
+      await keplr.experimentalSuggestChain(config);
+    }
+
+    await keplr.enable(chainId);
+    console.log("Chain successfully added and enabled in Keplr!");
+
+  } catch (error: unknown) {
+    console.error("Error adding chain:", error);
+    
+    if (error instanceof Error && error.message.includes("chain not supported")) {
+      console.log("This chain needs to be manually added with chainInfo configuration");
+    }
+    
+    throw error;
+  }
+};
+
 export const AddTestnetChain: React.FC = () => {
   const [keplrAvailable, setKeplrAvailable] = useState(false);
 
@@ -43,35 +75,4 @@ export const AddTestnetChain: React.FC = () => {
       )}
     </>
   );
-};
-
-const addDevnetChain = async () => {
-  try {
-    const keplr = await getKeplr();
-    if (!keplr) {
-      throw new Error("Keplr not found");
-    }
-
-    const chainId = "nillion-chain-testnet-1";
-    try {
-
-      await keplr.getKey(chainId);
-      console.log("Chain already exists in Keplr!");
-    } catch {
-      console.log("Adding new chain to Keplr...");
-      await keplr.experimentalSuggestChain(config);
-    }
-
-    await keplr.enable(chainId);
-    console.log("Chain successfully added and enabled in Keplr!");
-
-  } catch (error: unknown) {
-    console.error("Error adding chain:", error);
-    
-    if (error instanceof Error && error.message.includes("chain not supported")) {
-      console.log("This chain needs to be manually added with chainInfo configuration");
-    }
-    
-    throw error;
-  }
 };
