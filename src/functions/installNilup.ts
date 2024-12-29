@@ -22,8 +22,8 @@ export async function installNilup() {
     if (execError.stderr && execError.stderr.includes("You may begin using nilup now!")) {
       console.log("Nilup installed or updated successfully!");
       console.log("Please source your shell configuration to update your environment:");
-		  console.log("For Bash users: source ~/.bashrc");
-		  console.log("Or, you can simply restart your terminal session to apply changes.");
+      console.log("For Bash users: source ~/.bashrc");
+      console.log("Or, you can simply restart your terminal session to apply changes.");
     } else {
       console.error("Failed to install Nilup. Error details:", execError.message);
       if (execError.stdout) console.error("stdout:", execError.stdout);
