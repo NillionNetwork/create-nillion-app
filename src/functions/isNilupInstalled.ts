@@ -4,7 +4,6 @@ import { installNilup } from "./installNilup.js";
 export async function isNilupInstalled() {
   try {
     const output = execSync("nilup -V", { stdio: "pipe" }).toString().trim();
-    if (output !== "nilup v0.7.0") {
     if (output.toLowerCase().includes("nilup")) {
       console.log(`Nilup is already installed. ${output}`);
     } else {
