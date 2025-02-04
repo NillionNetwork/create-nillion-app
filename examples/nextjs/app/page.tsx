@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { NillionProvider } from "@nillion/client-react-hooks";
-import { StoreValuesConfig, type VmClient } from "@nillion/client-vms";
+import { type VmClient } from "@nillion/client-vms";
 import { LoginButton } from "./components/LoginButton";
 import { InstructionsTab } from "./components/InstructionsTab";
 import { StoreValue } from "./components/StoreValue";
