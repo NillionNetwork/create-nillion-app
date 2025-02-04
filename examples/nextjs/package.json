@@ -10,9 +10,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nillion/client-react-hooks": "^0.2.1",
-    "@nillion/client-vms": "^0.2.1",
-    "@nillion/client-wasm": "^0.2.0",
+    "@nillion/client-react-hooks": "0.3.0-rc.1",
+    "@nillion/client-vms": "0.3.0-rc.3",
+    "@nillion/client-wasm": "0.3.0-rc.2",
+    "@noble/curves": "1.6.0",
+    "@noble/hashes": "1.5.0",
+    "@noble/secp256k1": "2.1.0",
     "next": "15.0.3",
     "react": "^18",
     "react-dom": "^18"
@@ -24,8 +27,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
-    "prettier": "3.3.3",
     "postcss": "^8",
+    "prettier": "3.3.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

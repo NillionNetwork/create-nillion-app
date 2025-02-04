@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { NillionProvider } from "@nillion/client-react-hooks";
-import type { VmClient } from "@nillion/client-vms";
+import { StoreValuesConfig, type VmClient } from "@nillion/client-vms";
 import { LoginButton } from "./components/LoginButton";
 import { InstructionsTab } from "./components/InstructionsTab";
 import { StoreValue } from "./components/StoreValue";
@@ -13,6 +13,11 @@ import { UpdateValues } from "./components/UpdateValues";
 import { StoreProgram } from "./components/StoreProgram";
 import { InvokeCompute } from "./components/InvokeCompute";
 import { RetrieveComputeResults } from "./components/RetrieveComputeResults";
+import { AccountBalance } from "./components/AccountBalance";
+import { FundAccount } from "./components/FundAccount";
+import { StoreSignatureValues } from "./components/StoreSignatureValues";
+import { UpdateEcdsaPermissions } from "./components/UpdateECDSAPermissions";
+import { InvokeECDSA } from "./components/InvokeECDSA";
 
 export default function Home() {
   const [client, setClient] = useState<VmClient | undefined>();
@@ -51,6 +56,8 @@ export default function Home() {
           <NillionProvider client={client}>
             <div className="flex flex-col gap-4 max-w-4xl mx-auto w-full mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
+                <AccountBalance />
+                <FundAccount />
                 <StoreValue />
                 <RetrieveValues />
                 <UpdateValues />
@@ -60,6 +67,11 @@ export default function Home() {
                 <StoreProgram />
                 <InvokeCompute />
                 <RetrieveComputeResults />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+                <StoreSignatureValues />
+                <UpdateEcdsaPermissions />
+                <InvokeECDSA />
               </div>
             </div>
           </NillionProvider>
