@@ -16,7 +16,10 @@ export const StoreValue: FC = () => {
   }
 
   const options = {
-    values: [{ name: "data", value: NadaValue.new_secret_integer("42") }],
+    values: [
+      { name: "data", value: NadaValue.new_secret_integer("42") },
+      { name: "coolValue", value: NadaValue.new_secret_boolean(true) },
+    ],
     ttl: 1,
   };
 

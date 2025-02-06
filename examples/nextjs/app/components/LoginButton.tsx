@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
-import { createClient } from "@nillion/client-react-hooks";
+import { createClient, getKeplr } from "@nillion/client-react-hooks";
+// import { createClient } from "@nillion/client-react-hooks";
 import type { VmClient } from "@nillion/client-vms";
 import { AddTestnetChain } from "./AddTestnetChain";
 
@@ -19,7 +20,8 @@ export const LoginButton: FC<LoginButtonProps> = ({
   const [error, setError] = useState<string | null>(null);
 
   const NETWORK: NetworkType = "devnet"; // devnet or testnet  <-- Change here.
-  const isTestnet = (network: NetworkType): network is "testnet" => network === "testnet";
+  const isTestnet = (network: NetworkType): network is "testnet" =>
+    network === "testnet";
 
   const chainId = "nillion-chain-testnet-1";
 
@@ -27,19 +29,25 @@ export const LoginButton: FC<LoginButtonProps> = ({
     setIsLoading(true);
     setError(null);
 
+    const TestnetDefaultConfig = {
+      bootnodeUrl:
+        "https://node-1.nilvm-testnet-1.nillion-network.testnet.nillion.network:14311",
+      chainUrl: "https://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz",
+      chainId: "nillion-chain-testnet-1",
+    };
+
     try {
       // For DEVNET
-      const client = await createClient({
-        network: NETWORK,
-      });
-
-      // Uncomment the following line to use TESTNET + Keplr wallet
       // const client = await createClient({
       //   network: NETWORK,
-      //   seed: "example-user-seed",
-      //   //@ts-expect-error window keplr types
-      //   keplr: window.keplr,
       // });
+
+      const client = await createClient({
+        network: "testnet",
+        seed: "foobarbaz",
+        config: TestnetDefaultConfig,
+        keplr: await getKeplr(),
+      });
 
       onClientCreated(client);
 
