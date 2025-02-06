@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-// import { createClient, getKeplr } from "@nillion/client-react-hooks";
-import { createClient } from "@nillion/client-react-hooks";
+import { createClient, getKeplr } from "@nillion/client-react-hooks";
+// import { createClient } from "@nillion/client-react-hooks";
 import type { VmClient } from "@nillion/client-vms";
 import { AddTestnetChain } from "./AddTestnetChain";
 
@@ -31,16 +31,15 @@ export const LoginButton: FC<LoginButtonProps> = ({
 
     try {
       // For DEVNET
-      const client = await createClient({
-        network: NETWORK,
-      });
-
-      // // Uncomment the following line to use TESTNET + Keplr wallet
       // const client = await createClient({
-      //   network: "testnet",
-      //   seed: "foobarbaz",
-      //   keplr: await getKeplr(),
+      //   network: NETWORK,
       // });
+
+      const client = await createClient({
+        network: "testnet",
+        seed: "foobarbaz",
+        keplr: await getKeplr(),
+      });
 
       onClientCreated(client);
 
