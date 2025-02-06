@@ -30,16 +30,16 @@ export const LoginButton: FC<LoginButtonProps> = ({
 
     try {
       // For DEVNET
-      // const client = await createClient({
-      //   network: NETWORK,
-      // });
+      const client = await createClient({
+        network: NETWORK,
+      });
 
       // // Uncomment the following line to use TESTNET + Keplr wallet
-      const client = await createClient({
-        network: "testnet",
-        seed: "foobarbaz",
-        keplr: await getKeplr(),
-      });
+      // const client = await createClient({
+      //   network: "testnet",
+      //   seed: "foobarbaz",
+      //   keplr: await getKeplr(),
+      // });
 
       onClientCreated(client);
 

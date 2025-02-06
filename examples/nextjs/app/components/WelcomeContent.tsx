@@ -3,9 +3,9 @@ export const WelcomeContent = () => {
     <div className="max-w-4xl">
       <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] mt-4">
         <li className="mb-2">
-          Follow along the quickstart guide {" "}
+          Follow along the quickstart guide{" "}
           <a
-            href="https://docs.nillion.com/quickstart"
+            href="https://docs.nillion.com/js-client#quick-start"
             target="_blank"
             className="underline"
             rel="noopener noreferrer"
@@ -21,7 +21,7 @@ export const WelcomeContent = () => {
           in a separate terminal.
         </li>
         <li className="mb-2">
-          Reach out to us on {" "}
+          Reach out to us on{" "}
           <a
             href="https://github.com/orgs/NillionNetwork/discussions"
             target="_blank"
