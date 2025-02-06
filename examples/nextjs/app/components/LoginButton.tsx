@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
-import { createClient, getKeplr } from "@nillion/client-react-hooks";
+// import { createClient, getKeplr } from "@nillion/client-react-hooks";
+import { createClient } from "@nillion/client-react-hooks";
 import type { VmClient } from "@nillion/client-vms";
 import { AddTestnetChain } from "./AddTestnetChain";
 

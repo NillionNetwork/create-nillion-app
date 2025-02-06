@@ -16,7 +16,7 @@ export const WelcomeContent = () => {
         <li className="mb-2">
           Make sure you are running
           <code className="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-md p-1 mx-1">
-            nillion-devnet
+            nillion-devnet --seed test
           </code>
           in a separate terminal.
         </li>
